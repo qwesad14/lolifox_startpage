@@ -1,0 +1,194 @@
+<title>Start</title>
+<style type="text/css">
+body {
+	background: url(bg.png) repeat-x;
+	font: 9pt Tahoma, Verdana, Arial, Helvetica, sans-serif;
+}
+#info {
+	display: block;
+	width: 530px;
+	text-align: center;
+	border: 12px solid #f3f3f3;
+	background-color: #f9f9f9;
+	-moz-border-radius: 32px;
+	padding: 10px;
+	margin-top: 40px;
+	margin-bottom: -8%;
+}
+#box {
+	margin-top: 12%;
+	margin-bottom: 30px;
+	display: block;
+	width: 530px;
+	height: 230px;
+	text-align: center;
+	border: 12px solid #f3f3f3;
+	background: url(bg2.png) no-repeat;
+	background-position: 50px;
+	background-color: #f9f9f9;
+	-moz-border-radius: 32px;
+	padding: 10px;
+}
+input[type=text] {
+	opacity: 0.5;
+	background-color: #eee;
+	border: 1px solid #999;
+	padding: 2px;
+}
+input[type=text]:focus {
+	opacity: 0.8;
+	background: #fff;
+}
+#searchprovider, #chevron {
+	opacity: 0.8;
+}
+.menu {
+	opacity: 0.8;
+	text-align: left;
+	display: block;
+	position: absolute;
+	visibility: hidden;
+	border: 1px solid #999;
+	width: 116px; !important
+}
+.menu > span {
+	padding: 4px;
+	font-size: 9pt;
+	display: block;
+	background-color: #eee;
+}
+.menu > span[onclick] {
+	cursor: pointer;
+}
+.menu > span[onclick]:hover {
+	background-color: #ddd;
+}
+.menu > hr {
+	border: 0;
+	height: 0px;
+	border-bottom: 1px solid #999;
+	margin: 0px;
+}
+a, a:visited {
+	color: #d40;
+	text-decoration: none;
+	font-weight: bold;
+}
+a:hover {
+	text-decoration: underline;
+}
+</style>
+<script type="text/javascript">
+<!--
+var current_sp = 0;
+var sp =
+<searchlist>
+	<provider group="1" name="Google">
+		<image>google.png</image>
+		<query type="web">https://www.google.com/search?q=</query>
+	</provider>
+	<provider group="1" name="Yahoo">
+		<image>yahoo.png</image>
+		<query type="web">https://search.yahoo.com/search?p=</query>
+	</provider>
+    	<provider group="1" name="Yandex">
+		<image>yandex.png</image>
+		<query type="web">https://ya.ru/search/?text=</query>
+	</provider>
+	<provider group="1" name="MSN">
+		<image>msn.png</image>
+		<query type="web">https://search.msn.com/results.aspx?q=</query>
+	</provider>
+	<provider group="2" name="Rutracker">
+		<image>blank.png</image>
+		<query type="torrents">https://rutracker.net/forum/tracker.php?nm=</query>
+	</provider>
+</searchlist>;
+
+function do_search()
+{
+	q = document.getElementById("query");
+	if(q.value == "") {
+		q.value = "You have to enter a query first.";
+		return;
+	}
+	window.location = sp.provider[current_sp].query[0] + q.value;
+}
+function showmenu()
+{
+	m1 = document.getElementById("menu1");
+	m2 = document.getElementById("menu2");
+	s = document.getElementById("searchprovider");
+	m1.style.left = s.x + "px";
+	m1.style.top = s.y + 21 + "px";
+	m1.style.visibility = "visible";
+	m2.style.left = s.x + "px";
+	m2.style.top = s.y - m2.offsetHeight + 1 + "px";
+	m2.style.visibility = "visible";
+	s.style.opacity = "0.5";
+}
+function hidemenu()
+{
+	document.getElementById('menu1').style.visibility = "hidden";
+	document.getElementById('menu2').style.visibility = "hidden";
+	document.getElementById('searchprovider').style.opacity = "0.8";
+}
+
+function selectsearch(provider)
+{
+	i = document.getElementById("searchprovider");
+	switch(provider) {
+		case 0:
+		case 1:
+		case 2:
+		case 3:
+		case 4:
+		case 5:
+		case 6:
+			i.src = sp.provider[provider].image;
+			current_sp = provider;
+			hidemenu();
+	}
+}
+
+function constructmenu(group)
+{
+	for(var i = 0; i < sp.provider.length(); i++) {
+		if(sp.provider[i].@group == "" + group) {
+			document.write("<span onclick=\"selectsearch(" + i + ");\">" +
+							sp.provider[i].@name + "</span>");
+		}
+	}	
+}
+-->
+</script>
+</head>
+<body>
+<div style="font-size: 8pt; position: fixed; top: 6px; right: 10px; color: darkred;"><b>Info:</b> Click on the chevron to select a different searchengine.</div>
+<div align="center">
+<div id="info" style="visibility: hidden"></div>
+<div id="box">
+<div style="text-align: left; padding: 30px 0px 40px 48px"><img src="start.png"></div>
+<input id="query" type="text" style="width: 300px;" title="Enter searchquery here." onkeypress="if(event.keyCode == 13) do_search()">
+<img alt="Search" title="Start searching" src="google.png" align="top" id="searchprovider" style="border: 1px solid #999; border-right: 0px; cursor: pointer;" onclick="do_search()"><img id="chevron" alt="v" title="Select Engine" src="chevron.png" align="top" style="border: 1px solid #999; cursor: pointer" onclick="(getElementById(&#39;menu1&#39;).style.visibility == &#39;visible&#39;) ? hidemenu() : showmenu()"></div></div>
+<div style="font-size: 8pt; text-align: center; color: #555">
+	- <a href="lolifox.com/" title="Go to the homepage.">lolifox home</a> -
+	<a href="ctl.lolifox.com/" title="Combined Torrent Listing">CTL</a> -<br>
+	©2006-2008 <!--<a href="http://neo-kobe.atachi.ath.cx" title="Link only works if my local PC is online. gomen ^^">-->Atachi Hayashime, kyoku:senbi<!--</a>-->.
+</div>
+
+<!-- menus -->
+<div id="menu1" class="menu">
+	<script type="text/javascript">constructmenu(1);</script>
+</div>
+<div id="menu2" class="menu">
+	<script type="text/javascript">constructmenu(2);</script>
+	<hr>
+	<script type="text/javascript">constructmenu(3);</script>
+</div>
+<!-- /menus -->
+
+
+
+
+</body></html>
