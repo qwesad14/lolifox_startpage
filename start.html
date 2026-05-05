@@ -1,0 +1,202 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Start</title>
+<style type="text/css">
+body {
+	background: url(data:image/png;base64,<iVBORw0KGgoAAAANSUhEUgAAABQAAAAyCAMAAABrogsUAAABpFBMVEX+/v7z8/Py8vL19fX39/f3+Pj8/Pz9/f36+vr5+fn////29vb4+Pj09PT7+/vw8PDk5OTb29vq6urn5+fY2Njt7e3g4ODe3t7a2trh4eHi4eHp6Ojm5ubd3d3X19fe3t/Y2djs7Ozt7e719fTX19bv7+/j4+Pp6enp6OnX1tfy8vHu7+749/jl5ubs6+zz9PPf4ODc29vu7u7s7Ovl5uXd3dz19PXx8vLx8fLk5eTk5OXn5+jr7Ozi4+Li4uPi4+Pj4uPZ2tna2drc3d3Z2drZ2trh4eLt7u3o5+fm5ebn6Ofr6+vu7e3l5ebv7u7i4uHu7+/v7u/q6uv09fT19PTd3N3c3dze397Y2Nns6+vj4+Lx8vHy8fLf3+Dv7+7f3t7o6Ong3+Dd3Nzm5uXW19fb29z4+Pfr6urg4N/a2tnZ2Njy8fH09PXc3N308/Pc3Nzo6en39/jj4uLh4uL39vf29/bX1tbf3t/n6Ojh4uHt7u7w8fDZ2Nn29vf39vbr7Ov3+Pf49/fw8PHb3Nvz8/Tr6+zm5eX09fXo6ejW19bg39/q6+p1lWOkAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH1QscFhYWE98hTgAAAc9JREFUOMul0VV34mAQBuBJAmuhCyRECEkoRHApXopb3bayW9dt193d9U9vwmnv5m6f8807c97bD5wIwEvXJ8fJ46Tjs9ORTLqczhNX0gG07TlNP6Pp98Ob/kADtTKiaVRpdUVbvVeiSpT2k9KAyBDfMsQDwpY5C9jaIrdJslyOx7crcZKslCvxu+A+9+Vsv3W7wTB2lxPLRm4hsWssJRILudySAW84jpubC3PcJGcFNxkOhzn4mA9thNK12Vo6nd7I10LfQ/kQMEOnzDWG+cvYyZzOwn4kEvkVeBSIRiLRQHQ/ELASWHZigrWCnZliZ15Z1xTLQuHoSE6lfsgpWZYLqen5wrQ8Dx7PeNVjxbjnXLUKT5qNer1lNhubzZZpmptmo94Cyf9U8vv9kjR4vWjvweJAAp7/k9054G/xWZ7nD3bslYVgUHi5JwjCdUEI2hMUhD1QiuuHa+vd+91iV1EeKsqhslYE75jXO2aN96Y13q/DDe1+py2K7U6vL/ZEsd/p3RZF8Pl876wZvWOH74b9RkGN6ce6ruovYjH1WI2pv/WYClcQQCLwkkDg5QgCKARe0ghwIPDShYDLCLy8hMDLqwi4gMDLiwi8/E/Yv/8DuABd+4z4f2cAAAAASUVORK5CYII=>) repeat-x;
+	font: 9pt Tahoma, Verdana, Arial, Helvetica, sans-serif;
+	margin: 0;
+	padding: 0;
+}
+#info {
+	display: block;
+	width: 530px; 
+	text-align: center;
+	border: 12px solid #f3f3f3;
+	background-color: #f9f9f9;
+	-moz-border-radius: 32px;
+    border-radius: 32px;
+	padding: 10px;
+	margin-top: 40px;
+	margin-bottom: -8%;
+}
+#box {
+	margin-top: 12%;
+	margin-bottom: 30px;
+	display: block;
+	width: 530px;
+	height: 230px;
+	text-align: center;
+	border: 12px solid #f3f3f3;
+	background: url(bg2.png) no-repeat;
+	background-position: 50px;
+	background-color: #f9f9f9;
+	-moz-border-radius: 32px;
+    border-radius: 32px;
+	padding: 10px;
+}
+input[type=text] {
+	opacity: 0.5;
+	background-color: #eee;
+	border: 1px solid #999;
+	padding: 2px;
+}
+input[type=text]:focus {
+	opacity: 0.8;
+	background: #fff;
+}
+#searchprovider, #chevron {
+	opacity: 0.8;
+}
+.menu {
+	opacity: 0.8;
+	text-align: left;
+	display: block;
+	position: absolute;
+	visibility: hidden;
+	border: 1px solid #999;
+	width: 116px;
+    z-index: 100;
+}
+.menu > span {
+	padding: 4px;
+	font-size: 9pt;
+	display: block;
+	background-color: #eee;
+}
+.menu > span[onclick] {
+	cursor: pointer;
+}
+.menu > span[onclick]:hover {
+	background-color: #ddd;
+}
+.menu > hr {
+	border: 0;
+	height: 0px;
+	border-bottom: 1px solid #999;
+	margin: 0px;
+}
+a, a:visited {
+	color: #d40;
+	text-decoration: none;
+	font-weight: bold;
+}
+a:hover {
+	text-decoration: underline;
+}
+</style>
+<script type="text/javascript">
+//<!--
+var current_sp = 0;
+
+// I have manually converted the broken XML-like data into a valid JavaScript object.
+var sp = {
+    "provider": [
+        { "group": "1", "name": "Google", "image": "google.png", "query": "http://www.google.com/search?q=" },
+		{ "group": "1", "name": "Yandex", "image": "yandex.png", "query": "https://ya.ru/search/?text=" },
+        { "group": "1", "name": "Yahoo", "image": "yahoo.png", "query": "http://search.yahoo.com/search?p=" },
+        { "group": "1", "name": "MSN", "image": "msn.png", "query": "http://search.msn.com/results.aspx?q=" },
+        { "group": "1", "name": "Rutracker", "image": "blank.png", "query": "https://rutracker.net/forum/tracker.php?nm=" },
+    ]
+};
+
+
+function do_search()
+{
+	q = document.getElementById("query");
+	if(q.value == "") {
+		q.placeholder = "You have to enter a query first.";
+		return;
+	}
+	window.location = sp.provider[current_sp].query + q.value;
+}
+
+function showmenu()
+{
+	var m1 = document.getElementById("menu1");
+	var m2 = document.getElementById("menu2");
+	var s = document.getElementById("searchprovider");
+    var rect = s.getBoundingClientRect();
+    var scrollLeft = window.pageXOffset || document.documentElement.scrollLeft;
+    var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+	m1.style.left = (rect.left + scrollLeft) + "px";
+	m1.style.top = (rect.top + scrollTop) + 21 + "px";
+	m1.style.visibility = "visible";
+
+	m2.style.left = (rect.left + scrollLeft) + "px";
+	m2.style.top = (rect.top + scrollTop) - m2.offsetHeight + 1 + "px";
+	m2.style.visibility = "visible";
+	s.style.opacity = "0.5";
+}
+
+function hidemenu()
+{
+	document.getElementById('menu1').style.visibility = "hidden";
+	document.getElementById('menu2').style.visibility = "hidden";
+	document.getElementById('searchprovider').style.opacity = "0.8";
+}
+
+function selectsearch(provider_index)
+{
+	i = document.getElementById("searchprovider");
+    if(provider_index >= 0 && provider_index < sp.provider.length) {
+        i.src = sp.provider[provider_index].image;
+		current_sp = provider_index;
+		hidemenu();
+    }
+}
+
+// I also fixed this function. The original used a non-standard syntax (E4X)
+// that only worked in old versions of Firefox. This now works everywhere.
+function constructmenu(group, containerId)
+{
+    var container = document.getElementById(containerId);
+	for(var i = 0; i < sp.provider.length; i++) {
+		if(sp.provider[i].group == "" + group) {
+            var span = document.createElement("span");
+            span.setAttribute("onclick", "selectsearch(" + i + ");");
+            span.textContent = sp.provider[i].name;
+            container.appendChild(span);
+		}
+	}
+}
+
+// Construct menus on page load
+window.onload = function() {
+    constructmenu(1, 'menu1');
+    constructmenu(2, 'menu2_group2');
+    constructmenu(3, 'menu2_group3');
+};
+//-->
+</script>
+</head>
+<body>
+
+<div style="font-size: 8pt; position: fixed; top: 6px; right: 10px; color: darkred;"><b>Info:</b> Click on the chevron to select a different searchengine.</div>
+<div align="center">
+<div id="info" style="visibility: hidden"></div>
+<div id="box">
+<div style="text-align: left; padding: 30px 0px 40px 48px"><img src="start.png"></div>
+<input id="query" type="text" style="width: 300px;" title="Enter searchquery here." onkeypress="if(event.keyCode == 13) do_search()">
+<img alt="Search" title="Start searching" src="google.png" align="top" id="searchprovider" style="border: 1px solid #999; border-right: 0px; cursor: pointer;" onclick="do_search()"><img id="chevron" alt="v" title="Select Engine" src="https://web.archive.org/web/20100427143910im_/http://start.lolifox.com/chevron.png" align="top" style="border: 1px solid #999; cursor: pointer" onclick="(document.getElementById(&#39;menu1&#39;).style.visibility == &#39;visible&#39;) ? hidemenu() : showmenu()"></div></div>
+<div style="font-size: 8pt; text-align: center; color: #555">
+	- <a href="https://web.archive.org/web/20100504104326im_/http://lolifox.com" title="Go to the homepage.">lolifox home</a> -
+	<a href="http://localhost:8000/lf-project%20~%20combined%20torrent%20listing.html" title="Combined Torrent Listing">CTL</a> -<br>
+	©2006-2008 Atachi Hayashime, kyoku:senbi.
+</div>
+
+<!-- menus -->
+<div id="menu1" class="menu">
+	<!-- content generated by JS -->
+</div>
+<!--<div id="menu2" class="menu">
+    <div id="menu2_group2"></div>
+	<hr>
+	<div id="menu2_group3"></div>
+</div>
+/menus -->
+
+</body></html>
